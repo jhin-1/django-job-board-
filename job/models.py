@@ -1,4 +1,5 @@
 from django.db import models
+from .images_urls import *
 
 # Create your models here.
 
@@ -20,7 +21,7 @@ class Job(models.Model):
     salary = models.IntegerField(default=0)
     experience = models.IntegerField(default=1)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='jobs/', blank=True , null=True, max_length=50000)
+    image = models.ImageField(upload_to=get_job, blank=True, null=True, max_length=90000)
 
     def __str__(self):
         return self.title
