@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from src.job import urls as job_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('jobs/', include('job.urls', namespace='jobs')),
+    path('', include(job_urls)),
+    path('api-auth/', include('rest_framework.urls')),
 
 
 ]
