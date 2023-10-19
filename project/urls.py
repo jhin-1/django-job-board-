@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from src.job import urls as job_urls
+from job import urls as job_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(job_urls)),
