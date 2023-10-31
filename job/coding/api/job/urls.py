@@ -4,5 +4,6 @@ from .code import *
 urlpatterns = [
     path('all', all_api),
     path('details', details_api),
+    path('create', create_api),
 
 ]

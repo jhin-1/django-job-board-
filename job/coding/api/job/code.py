@@ -4,6 +4,7 @@ from ...oops.jobs import *
 from ...oops import *
 # http://127.0.0.1:8000/dash/api/job/all
 # http://127.0.0.1:8000/dash/api/job/details
+# http://127.0.0.1:8000/dash/api/job/create
 
 @api_view(["GET"])
 def all_api(request):
@@ -19,6 +20,16 @@ def all_api(request):
 @api_view(["GET"])
 def details_api(request):
     call = JobsOop.details(request)
+    re_status, re_message, re_data = call[0], call[1], call[2]
+    re_send = {
+        "message": re_message,
+        "data": re_data
+    }
+    return Response(re_send, re_status)
+
+@api_view(["POST"])
+def create_api(request):
+    call = JobsOop.create(request)
     re_status, re_message, re_data = call[0], call[1], call[2]
     re_send = {
         "message": re_message,
